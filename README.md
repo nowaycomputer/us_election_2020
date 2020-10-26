@@ -9,9 +9,9 @@ Can we update that model somehow using polling data such that we can create new 
 
 Can we use these synthetic polls to estimate the results of the 2020 election based on some recent polls?
 
-The answers are probably: yes, probably not, probably not.
+The answers are probably: 'yes', 'probably not' and 'probably not'.
 
-That said a first attempt is contained in the notebooks folder.
+That said, a first attempt is contained in the notebooks folder.
 
 Most recent prediction (26th October 2020): Trump 203 : Biden 335 (electoral college votes)
 
