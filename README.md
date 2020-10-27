@@ -13,6 +13,7 @@ The answers are probably: 'yes', 'probably not' and 'probably not'.
 
 That said, a first attempt is contained in the notebooks folder.
 
-Most recent prediction (26th October 2020): Trump 203 : Biden 335 (electoral college votes)
 
+**Last Update 27th Oct 2020:** Trump: 162, Biden: 162
 
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/271020.png)
