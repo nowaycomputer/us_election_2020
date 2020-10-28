@@ -14,7 +14,11 @@ The answers are probably: 'yes', 'probably not' and 'probably not'.
 That said, a first attempt is contained in the notebooks folder.
 
 
+<<<<<<< HEAD
 **Last Update 28th Oct 2020:** Trump: **160**, Biden: **378**
+=======
+**Last Update 27th Oct 2020:** Trump: 163, Biden: 375
+>>>>>>> 78e92e5e1b874100411c8fd476b1a6b7a532b481
 
 ![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/281020.png)
 
