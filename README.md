@@ -98,5 +98,5 @@ Recognised Issues:
 * *The selection of swing states is a bit arbitrary but was selected as the five closest to the centre of the fivethirtyeight tipping point 'snake' when the model was built*
 * *Demographics have changed since the dataset I'm using was created*
 * *Differential turnout (or even a general increase in turnout) is not handled at all*
-* *The 'backtesting below runs to January 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for 2020 until the primaries had concluded*
+* *The 'backtesting below runs to January 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for most of 2020 even before the primaries had concluded*
 
