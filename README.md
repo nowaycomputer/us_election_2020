@@ -9,9 +9,7 @@ Ideas:
 
 * Can we use these synthetic polls to estimate the results of the 2020 election?
 
-The answers to these are: 'yes', 'kind of' and 'probably not'.
-
-That said, a first attempt is contained in the notebooks folder.
+The answers to these are: 'yes', 'kind of' and 'probably not'. That said, a first attempt is contained in the notebooks folder.
 
 The process runs as follows:
 
@@ -22,12 +20,6 @@ The process runs as follows:
   * Using the re-trained model, make predictions for 2020 based on demographic data and 2016 vote in each state
   * Calculate the winner of each state and the number of electoral votes
 * The average outcome of these model re-training runs is calculated to generate the final output
-
-Recognised Issues:
-* *The selection of swing states is a bit arbitrary but was selected as the five closest to the centre of the fivethirtyeight tipping point 'snake' when the model was built*
-* *Demographics have changed since the dataset I'm using was created*
-* *Differential turnout (or even a general increase in turnout) is not handled at all*
-* *The 'backtesting below runs to January 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for 2020 until the primaries had concluded*
 
 **Last Update 28th Oct 2020:** 
 
@@ -101,3 +93,10 @@ Biden Electoral College Votes: 427
  Implied Mean Democrat Electoral College Votes: 378.0
 
 ```
+
+Recognised Issues:
+* *The selection of swing states is a bit arbitrary but was selected as the five closest to the centre of the fivethirtyeight tipping point 'snake' when the model was built*
+* *Demographics have changed since the dataset I'm using was created*
+* *Differential turnout (or even a general increase in turnout) is not handled at all*
+* *The 'backtesting below runs to January 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for 2020 until the primaries had concluded*
+
