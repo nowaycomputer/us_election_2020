@@ -21,13 +21,14 @@ The process runs as follows:
   * Calculate the winner of each state and the number of electoral votes
 * The average outcome of these model re-training runs is calculated to generate the final output
 
-**Last Update 28th Oct 2020:** 
+A basic Flask API is available but beware - it's resource heavy to run as it re-loads the input data and models each time to ensure it's up to date. A test query script is also provided. Hitting http://127.0.0.1:500/api should return the results in json.
+**Last Update 29th Oct 2020:** 
 
-Trump: **160**
+Trump: **154**
 
-Biden: **378**
+Biden: **384**
 
-![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/281020.png)
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/291020.png)
 
 
 
