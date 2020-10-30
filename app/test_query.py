@@ -1,9 +1,18 @@
 import requests
 import json
 
-url = 'http://127.0.0.1:5000/api/'
+# For the output based on a set of swing states
 
+url = 'http://127.0.0.1:5000/api/swingstates'
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 r = requests.post(url, headers=headers)
+print(r, r.text)
 
+
+# For the output based on a single state
+
+# url = 'http://127.0.0.1:5000/api/singlestate'
+# data = json.dumps('Florida')
+# headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+# r = requests.post(url, data=data, headers=headers)
 print(r, r.text)

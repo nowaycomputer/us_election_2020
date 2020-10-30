@@ -21,43 +21,48 @@ The process runs as follows:
   * Calculate the winner of each state and the number of electoral votes
 * The average outcome of these model re-training runs is calculated to generate the final output
 
-A basic Flask API is available but beware - it's resource heavy to run as it re-loads the input data and models each time to ensure it's up to date. A test query script is also provided. Hitting http://127.0.0.1:500/api should return the results in json.
+A basic Flask API is available but beware - it's resource heavy to run as it re-loads the input data and models each time to ensure it's up to date. A [test query script](https://github.com/nowaycomputer/us_election_2020/blob/main/app/test_query.py) is also provided. 
+The following API routes are available: 
+
+* http://127.0.0.1:500/api/singlestate will predict the election based on polls from a single state
+
+* http://127.0.0.1:500/api/swingstates will predict the election based on the average of a selection of swing states
 
 **Last Update 29th Oct 2020:** 
 
-Trump: **154**
+Trump: **172**
 
-Biden: **384**
+Biden: **366**
 
-![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/291020.png)
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/301020.png)
 
 
 
 ```
 Modelling Election based on latest polls from Florida
 
-Model Outputs: Dem: 52.02  and Rep: 47.92
-Current Poll: Dem: 51.92  and Rep: 48.08
+Model Outputs: Dem: 51.57  and Rep: 48.4
+Current Poll: Dem: 51.6  and Rep: 48.4
 
-Trump Electoral College Votes: 179
-Biden Electoral College Votes: 359
+Trump Electoral College Votes: 183
+Biden Electoral College Votes: 355
 
 -------------------------
 
 Modelling Election based on latest polls from Wisconsin
 
-Model Outputs: Dem: 55.93  and Rep: 43.89
-Current Poll: Dem: 55.88  and Rep: 44.12
+Model Outputs: Dem: 54.05  and Rep: 45.95
+Current Poll: Dem: 53.85  and Rep: 46.15
 
-Trump Electoral College Votes: 114
-Biden Electoral College Votes: 424
+Trump Electoral College Votes: 150
+Biden Electoral College Votes: 388
 
 -------------------------
 
 Modelling Election based on latest polls from Pennsylvania
 
-Model Outputs: Dem: 52.64  and Rep: 47.47
-Current Poll: Dem: 52.47  and Rep: 47.53
+Model Outputs: Dem: 51.83  and Rep: 48.26
+Current Poll: Dem: 51.62  and Rep: 48.38
 
 Trump Electoral College Votes: 153
 Biden Electoral College Votes: 385
@@ -66,28 +71,28 @@ Biden Electoral College Votes: 385
 
 Modelling Election based on latest polls from North Carolina
 
-Model Outputs: Dem: 51.31  and Rep: 48.34
-Current Poll: Dem: 51.41  and Rep: 48.59
+Model Outputs: Dem: 49.42  and Rep: 51.29
+Current Poll: Dem: 49.63  and Rep: 50.37
 
-Trump Electoral College Votes: 203
-Biden Electoral College Votes: 335
+Trump Electoral College Votes: 288
+Biden Electoral College Votes: 250
 
 -------------------------
 
 Modelling Election based on latest polls from Michigan
 
-Model Outputs: Dem: 55.1  and Rep: 45.09
-Current Poll: Dem: 55.23  and Rep: 44.77
+Model Outputs: Dem: 57.15  and Rep: 43.72
+Current Poll: Dem: 56.96  and Rep: 43.04
 
-Trump Electoral College Votes: 120
-Biden Electoral College Votes: 418
+Trump Electoral College Votes: 87
+Biden Electoral College Votes: 451
 
 -------------------------
 
 
- Implied Mean Republican Electoral College Votes: 154.0
+ Implied Mean Republican Electoral College Votes: 172.0
 
- Implied Mean Democrat Electoral College Votes: 384.0
+ Implied Mean Democrat Electoral College Votes: 366.0
 ```
 
 Recognised Issues:
