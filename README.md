@@ -30,13 +30,13 @@ The following API routes are available:
 
 * http://127.0.0.1:500/api/swingstatesdatelimited will predict the election based on the average of a selection of swing states for on a given date
 
-**Last Update 30th Oct 2020:** 
+**Last Update 31st Oct 2020:** 
 
 Trump: **167**
 
 Biden: **371**
 
-![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/301020.png)
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/311020.png)
 
 
 
