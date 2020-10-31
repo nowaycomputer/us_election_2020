@@ -43,18 +43,18 @@ Biden: **371**
 ```
 Modelling Election based on latest polls from Florida
 
-Model Outputs: Dem: 51.57  and Rep: 48.4
-Current Poll: Dem: 51.6  and Rep: 48.4
+Model Outputs: Dem: 48.92  and Rep: 45.85
+Current Poll: Dem: 48.78  and Rep: 46.37
 
-Trump Electoral College Votes: 183
-Biden Electoral College Votes: 355
+Trump Electoral College Votes: 203
+Biden Electoral College Votes: 335
 
 -------------------------
 
 Modelling Election based on latest polls from Wisconsin
 
-Model Outputs: Dem: 54.05  and Rep: 45.95
-Current Poll: Dem: 53.85  and Rep: 46.15
+Model Outputs: Dem: 51.78  and Rep: 43.86
+Current Poll: Dem: 51.87  and Rep: 43.08
 
 Trump Electoral College Votes: 150
 Biden Electoral College Votes: 388
@@ -63,8 +63,8 @@ Biden Electoral College Votes: 388
 
 Modelling Election based on latest polls from Pennsylvania
 
-Model Outputs: Dem: 51.83  and Rep: 48.26
-Current Poll: Dem: 51.62  and Rep: 48.38
+Model Outputs: Dem: 50.42  and Rep: 44.89
+Current Poll: Dem: 50.21  and Rep: 44.84
 
 Trump Electoral College Votes: 153
 Biden Electoral College Votes: 385
@@ -73,28 +73,28 @@ Biden Electoral College Votes: 385
 
 Modelling Election based on latest polls from North Carolina
 
-Model Outputs: Dem: 49.42  and Rep: 51.29
-Current Poll: Dem: 49.63  and Rep: 50.37
+Model Outputs: Dem: 48.97  and Rep: 46.7
+Current Poll: Dem: 49.1  and Rep: 46.74
 
-Trump Electoral College Votes: 288
-Biden Electoral College Votes: 250
+Trump Electoral College Votes: 203
+Biden Electoral College Votes: 335
 
 -------------------------
 
 Modelling Election based on latest polls from Michigan
 
-Model Outputs: Dem: 57.15  and Rep: 43.72
-Current Poll: Dem: 56.96  and Rep: 43.04
+Model Outputs: Dem: 51.18  and Rep: 41.46
+Current Poll: Dem: 51.43  and Rep: 42.21
 
-Trump Electoral College Votes: 87
-Biden Electoral College Votes: 451
+Trump Electoral College Votes: 126
+Biden Electoral College Votes: 412
 
 -------------------------
 
 
- Implied Mean Republican Electoral College Votes: 172.0
+ Implied Mean Republican Electoral College Votes: 167.0
 
- Implied Mean Democrat Electoral College Votes: 366.0
+ Implied Mean Democrat Electoral College Votes: 371.0
 ```
 
 Recognised Issues:
