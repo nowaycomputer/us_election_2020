@@ -41,8 +41,39 @@ class ModelTools:
         self.results_2012_state['rep_pc'] = (self.results_2012_state['Republican Party'] / self.results_2012_state[
             'Total Votes']) * 100
 
-        # 538's excellent polling database
+        # 538's excellent polling databases
         self.polls_pres = pd.read_csv('https://projects.fivethirtyeight.com/2020-general-data/presidential_polls_2020.csv')
+
+        self.polls_pres_ave = pd.read_csv(
+            'https://projects.fivethirtyeight.com/2020-general-data/presidential_poll_averages_2020.csv')
+        self.polls_pres_ave['modeldate'] = pd.to_datetime(self.polls_pres_ave['modeldate'])
+
+        self.polls_pres_ave = self.polls_pres_ave.set_index('modeldate').sort_index()
+
+    def get_538_poll_ave(self, state):
+
+        trump = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
+                               (self.polls_pres_ave['state'] == state)].tail(1)['pct_estimate'].values[0]
+
+        biden = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Joseph R. Biden Jr.') &
+                               (self.polls_pres_ave['state'] == state)].tail(1)['pct_estimate'].values[0]
+        return biden * 0.01, trump * 0.01
+
+    def get_538_poll_ave_date_limited(self, state, date):
+        date = pd.to_datetime(date, format="%d/%m/%Y")
+        #
+        # print(self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
+        #                     (self.polls_pres_ave['state'] == state) &
+        #                     (self.polls_pres_ave.index < date)].tail(1))
+
+        trump = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
+                               (self.polls_pres_ave['state'] == state) &
+                               (self.polls_pres_ave.index < date)].tail(1)['pct_estimate'].values[0]
+
+        biden = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Joseph R. Biden Jr.') &
+                               (self.polls_pres_ave['state'] == state) &
+                               (self.polls_pres_ave.index < date)].tail(1)['pct_estimate'].values[0]
+        return biden * 0.01, trump * 0.01
 
     # Get the full state name (e.g. 'Florida') from the short state name (e.g. 'FL')
     def get_long_name_from_short(self, short_name):
@@ -81,85 +112,6 @@ class ModelTools:
         subdata = subdata.drop('Date', axis=1).sort_index()
         return subdata
 
-    # Get the weighted (by 538) polls for a given state
-    # Ideally we get the last 3 polls but in some cases there are only 2, 1 or none
-    def get_weighted_norm_poll_vote_share(self, state):
-        vote_shares = self.get_polls_for_state(self.get_long_name_from_short(state))
-        vote_shares['Biden_norm'] = vote_shares['Biden'] / (vote_shares['Biden'] + vote_shares['Trump'])
-        vote_shares['Trump_norm'] = vote_shares['Trump'] / (vote_shares['Biden'] + vote_shares['Trump'])
-
-        biden = 0
-        trump = 0
-
-        #  Really scrappy handling of available polls - to clean
-        if len(vote_shares) > 2:
-            last_polls = vote_shares.tail(3)
-            last_polls_total_weight = last_polls['Weights'].sum()
-            last_polls['poll_frac'] = last_polls['Weights'] / last_polls_total_weight
-
-            biden = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Biden_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Biden_norm'] + last_polls.iloc[2]['poll_frac'] * last_polls.iloc[2][
-                        'Biden_norm']
-            trump = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Trump_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Trump_norm'] + last_polls.iloc[2]['poll_frac'] * last_polls.iloc[2][
-                        'Trump_norm']
-
-        elif len(vote_shares) > 1:
-            last_polls = vote_shares.tail(2)
-            last_polls_total_weight = last_polls['Weights'].sum()
-            last_polls['poll_frac'] = last_polls['Weights'] / last_polls_total_weight
-
-            biden = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Biden_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Biden_norm']
-            trump = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Trump_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Trump_norm']
-
-        else:
-            last_polls = vote_shares.tail(1)
-            biden = last_polls.iloc[0]['Biden_norm']
-            trump = last_polls.iloc[0]['Trump_norm']
-
-        return biden, trump
-
-    def get_weighted_norm_poll_vote_share_date_limited(self, state, end_date):
-        vote_shares = self.get_polls_for_state(self.get_long_name_from_short(state))
-        vote_shares['Biden_norm'] = vote_shares['Biden'] / (vote_shares['Biden'] + vote_shares['Trump'])
-        vote_shares['Trump_norm'] = vote_shares['Trump'] / (vote_shares['Biden'] + vote_shares['Trump'])
-
-        vote_shares = vote_shares[vote_shares.index < end_date]
-        biden = 0
-        trump = 0
-
-        #  Really scrappy handling of available polls - to clean
-        if len(vote_shares) > 2:
-            last_polls = vote_shares.tail(3)
-            last_polls_total_weight = last_polls['Weights'].sum()
-            last_polls['poll_frac'] = last_polls['Weights'] / last_polls_total_weight
-
-            biden = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Biden_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Biden_norm'] + last_polls.iloc[2]['poll_frac'] * last_polls.iloc[2][
-                        'Biden_norm']
-            trump = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Trump_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Trump_norm'] + last_polls.iloc[2]['poll_frac'] * last_polls.iloc[2][
-                        'Trump_norm']
-
-        elif len(vote_shares) > 1:
-            last_polls = vote_shares.tail(2)
-            last_polls_total_weight = last_polls['Weights'].sum()
-            last_polls['poll_frac'] = last_polls['Weights'] / last_polls_total_weight
-
-            biden = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Biden_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Biden_norm']
-            trump = last_polls.iloc[0]['poll_frac'] * last_polls.iloc[0]['Trump_norm'] + last_polls.iloc[1][
-                'poll_frac'] * last_polls.iloc[1]['Trump_norm']
-
-        else:
-            last_polls = vote_shares.tail(1)
-            biden = last_polls.iloc[0]['Biden_norm']
-            trump = last_polls.iloc[0]['Trump_norm']
-
-        return biden, trump
-
     # Get the dem and rep % vote share for 2012
     def get_2012_vote_shares(self, state):
         state = self.get_short_name_from_long(state)
@@ -191,7 +143,7 @@ class ModelTools:
         demo_inputs.append(rep_2016)
 
         Y = []
-        polls = self.get_weighted_norm_poll_vote_share(self.get_short_name_from_long(s))
+        polls = self.get_538_poll_ave(s)
         dem_poll = 100 * polls[0]
         rep_poll = 100 * polls[1]
 
@@ -207,7 +159,7 @@ class ModelTools:
         demo_inputs.append(rep_2016)
 
         Y = []
-        polls = self.get_weighted_norm_poll_vote_share_date_limited(self.get_short_name_from_long(state), end_date)
+        polls = self.get_538_poll_ave_date_limited(state, end_date)
         dem_poll = 100 * polls[0]
         rep_poll = 100 * polls[1]
 
