@@ -9,7 +9,7 @@ Ideas:
 
 * Can we use these synthetic polls to estimate the results of the 2020 election?
 
-The answers to these are: 'yes', 'kind of' and 'probably not'. That said, a first attempt is contained in the notebooks folder.
+The answers to these are: 'yes', 'kind of' and 'probably not accurately'. That said, a first attempt is contained in the notebooks folder.
 
 The process runs as follows:
 
