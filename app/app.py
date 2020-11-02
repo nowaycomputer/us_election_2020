@@ -170,7 +170,7 @@ def five_thirty_eight_tipping_points():
     model_run_rep_ev = []
     model_run_dem_ev = []
 
-    test_states = ['Florida', 'Wisconsin', 'Pennsylvania', 'North Carolina', 'Michigan','Arizona','Minnesota',
+    test_states = ['Florida', 'Wisconsin', 'Pennsylvania', 'North Carolina', 'Michigan','Arizona', 'Minnesota',
                    'Georgia','Michigan','Nevada','Ohio', 'New Mexico', 'Colorado', 'New Hampshire', 'Virginia']
     for s in test_states:
 
@@ -250,7 +250,8 @@ def get_prediction_based_on_swing_states_date_limited():
     model_run_rep_ev = []
     model_run_dem_ev = []
 
-    test_states = ['Florida', 'Wisconsin', 'Pennsylvania', 'North Carolina', 'Michigan']
+    test_states=['Florida', 'Wisconsin', 'Pennsylvania', 'North Carolina', 'Michigan', 'Arizona', 'Georgia']
+
     for s in test_states:
 
         wa_poll = model_tools.get_538_poll_ave_date_limited(s, date)

@@ -30,72 +30,14 @@ The following API routes are available:
 
 * http://127.0.0.1:500/api/swingstatesdatelimited will predict the election based on the average of a selection of swing states for on a given date
 
-**Last Update 31st Oct 2020:** 
+**Last Update 2nd Nov 2020:** 
 
 Trump: **167**
 
 Biden: **371**
 
-![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/311020.png)
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/021120.png)
 
-
-
-```
-Modelling Election based on latest polls from Florida
-
-Model Outputs: Dem: 48.92  and Rep: 45.85
-Current Poll: Dem: 48.78  and Rep: 46.37
-
-Trump Electoral College Votes: 203
-Biden Electoral College Votes: 335
-
--------------------------
-
-Modelling Election based on latest polls from Wisconsin
-
-Model Outputs: Dem: 51.78  and Rep: 43.86
-Current Poll: Dem: 51.87  and Rep: 43.08
-
-Trump Electoral College Votes: 150
-Biden Electoral College Votes: 388
-
--------------------------
-
-Modelling Election based on latest polls from Pennsylvania
-
-Model Outputs: Dem: 50.42  and Rep: 44.89
-Current Poll: Dem: 50.21  and Rep: 44.84
-
-Trump Electoral College Votes: 153
-Biden Electoral College Votes: 385
-
--------------------------
-
-Modelling Election based on latest polls from North Carolina
-
-Model Outputs: Dem: 48.97  and Rep: 46.7
-Current Poll: Dem: 49.1  and Rep: 46.74
-
-Trump Electoral College Votes: 203
-Biden Electoral College Votes: 335
-
--------------------------
-
-Modelling Election based on latest polls from Michigan
-
-Model Outputs: Dem: 51.18  and Rep: 41.46
-Current Poll: Dem: 51.43  and Rep: 42.21
-
-Trump Electoral College Votes: 126
-Biden Electoral College Votes: 412
-
--------------------------
-
-
- Implied Mean Republican Electoral College Votes: 167.0
-
- Implied Mean Democrat Electoral College Votes: 371.0
-```
 
 Recognised Issues:
 * *The selection of swing states is a bit arbitrary but was selected as the five closest to the centre of the fivethirtyeight tipping point 'snake' when the model was built*
