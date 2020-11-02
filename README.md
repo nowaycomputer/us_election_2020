@@ -14,7 +14,7 @@ The answers to these are: 'yes', 'kind of' and 'probably not accurately'. That s
 The process runs as follows:
 
 * Fit a model to the 2016 results using some demographic features and the 2012 result in that state
-* For a set of swing states (*Florida, Wisconsin, Pennsylvania, North Carolina, Michigan*):
+* For a set of swing states (*Florida, Wisconsin, Pennsylvania, North Carolina, Michigan, Arizona, Georgia*):
   * The average of the last three [fivethirtyeight](https://projects.fivethirtyeight.com/2020-election-forecast/) polls (adjusted for weightings) for that state is calculated
   * Using the demographic data for that state and the poll average, re-train the model against this single instance of data until the error is <0.25% (totally arbitrary but in the recount region for most states!)
   * Using the re-trained model, make predictions for 2020 based on demographic data and 2016 vote in each state
