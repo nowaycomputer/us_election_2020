@@ -32,9 +32,11 @@ The following API routes are available:
 
 **Final Update 3rd Nov 2020:** 
 
-Trump: **177**
+Trump: **177** (126-203)*
 
-Biden: **361**
+Biden: **361** (335-412)*
+
+\* *range of model outputs*
 
 ![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/031120.png)
 
