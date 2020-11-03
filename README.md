@@ -30,18 +30,18 @@ The following API routes are available:
 
 * http://127.0.0.1:500/api/swingstatesdatelimited will predict the election based on the average of a selection of swing states for on a given date
 
-**Last Update 2nd Nov 2020:** 
+**Final Update 3rd Nov 2020:** 
 
-Trump: **167**
+Trump: **177**
 
-Biden: **371**
+Biden: **361**
 
-![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/021120.png)
+![alt text](https://github.com/nowaycomputer/us_election_2020/blob/main/img/031120.png)
 
 
 Recognised Issues:
 * *The selection of swing states is a bit arbitrary but was selected as the five closest to the centre of the fivethirtyeight tipping point 'snake' when the model was built*
 * *Demographics have changed since the dataset I'm using was created*
 * *Differential turnout (or even a general increase in turnout) is not handled at all*
-* *The 'backtesting below runs to January 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for most of 2020 even before the primaries had concluded*
+* *The 'backtesting below runs to May 2020 when Biden wasn't confirmed as the candidate but he was generally seen as the favourite for most of 2020 even before the primaries had concluded*
 

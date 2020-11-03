@@ -61,19 +61,19 @@ class ModelTools:
 
     def get_538_poll_ave_date_limited(self, state, date):
         date = pd.to_datetime(date, format="%d/%m/%Y")
-        print(date)
-        print(state)
-        print(self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
-                            (self.polls_pres_ave['state'] == state) &
-                            (self.polls_pres_ave.index < date)].tail(1))
+        # print(date)
+        # print(state)
+        # print(self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
+        #                     (self.polls_pres_ave['state'] == state) &
+        #                     (self.polls_pres_ave.index < date)].tail(1))
 
         trump = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Donald Trump') &
                                (self.polls_pres_ave['state'] == state) &
-                               (self.polls_pres_ave.index < date)].tail(1)['pct_estimate'].values[0]
+                               (self.polls_pres_ave.index <= date)].tail(1)['pct_estimate'].values[0]
 
         biden = self.polls_pres_ave[(self.polls_pres_ave['candidate_name'] == 'Joseph R. Biden Jr.') &
                                (self.polls_pres_ave['state'] == state) &
-                               (self.polls_pres_ave.index < date)].tail(1)['pct_estimate'].values[0]
+                               (self.polls_pres_ave.index <= date)].tail(1)['pct_estimate'].values[0]
         return biden * 0.01, trump * 0.01
 
     # Get the full state name (e.g. 'Florida') from the short state name (e.g. 'FL')

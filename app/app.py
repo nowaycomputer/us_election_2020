@@ -246,11 +246,20 @@ def get_prediction_based_on_swing_states_date_limited():
     date = data['date']
 
     model_tools = us2020.ModelTools()
+    trump_upper_bound=[]
+    trump_lower_bound=[]
+    biden_upper_bound=[]
+    biden_lower_bound=[]
 
     model_run_rep_ev = []
     model_run_dem_ev = []
 
     test_states=['Florida', 'Wisconsin', 'Pennsylvania', 'North Carolina', 'Michigan', 'Arizona', 'Georgia']
+
+    trump_max = 0
+    trump_min = 999
+    biden_max = 0
+    biden_min = 999
 
     for s in test_states:
 
@@ -302,6 +311,7 @@ def get_prediction_based_on_swing_states_date_limited():
         for state in model_tools.states:
             if state != 'United States':
                 if state != 'District Of Columbia':
+                    #  Calculate the model results
                     results = new_model.predict(scaler.transform(model_tools.make_new_feature_2016_based(state).reshape(1, -1)))
                     if results[0][1] > results[0][0]:
                         rep_elec_coll_votes += \
@@ -310,13 +320,26 @@ def get_prediction_based_on_swing_states_date_limited():
                         dem_elec_coll_votes += \
                         model_tools.elec_college[model_tools.elec_college['State'] == model_tools.get_short_name_from_long(state)]['Votes'].values[0]
 
+        # Update bounds
+        if dem_elec_coll_votes > biden_max:
+            biden_max = dem_elec_coll_votes
+        if dem_elec_coll_votes < biden_min:
+            biden_min = dem_elec_coll_votes
+
+        if rep_elec_coll_votes > trump_max:
+            trump_max = rep_elec_coll_votes
+        if rep_elec_coll_votes < trump_min:
+            trump_min = rep_elec_coll_votes
+
         model_run_rep_ev.append(rep_elec_coll_votes)
         model_run_dem_ev.append(dem_elec_coll_votes)
 
     r_ev = str(np.round(np.mean(model_run_rep_ev), 0))
     d_ev = str(np.round(np.mean(model_run_dem_ev), 0))
 
-    results = {'Trump': r_ev, 'Biden': d_ev}
+    results = {'Trump': r_ev, 'Biden': d_ev,
+               'Trump_min': str(trump_min), 'Trump_max': str(trump_max),
+               'Biden_min': str(biden_min), 'Biden_max': str(biden_max)}
     return jsonify(results)
 
 
